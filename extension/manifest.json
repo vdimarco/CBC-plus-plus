@@ -1,12 +1,18 @@
 {
   "manifest_version": 2,
-
-  "name": "Deeply Connected Digital",
+  "name": "CBC++ : Deeply Connected Digital",
   "description": "CBC Article Augmentation",
-  "version": "0.0.1",
+  "version": "0.1",
+  "icons": {
+    "128" : "images/icon/cbc_bfly.png"
+    },
+  "homepage_url": "https://github.com/vdimarco/CBC-plus-plus",
   "background": {
     "scripts": ["/src/background.js"]
   },
+  "permissions": [
+          "http://cbc.ca/*"
+    ],
   "content_scripts": [
     {
       "matches": ["*://google.com/*"],
@@ -14,9 +20,9 @@
       "all_frames": true
     }
   ],
-  "browser_action": { 
-    "default_popup": "/src/popup.html", 
-    "default_icon" : "img/icon/cbc_bfly.png"
+  "browser_action": {
+    "default_popup": "/src/popup.html",
+    "default_icon" : "images/icon/cbc_bfly.png"
     },
   "permissions": ["*://google.com/*"],
   "content_security_policy": "script-src 'self' https://cdn.mxpnl.com; object-src 'self'"
