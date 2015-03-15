@@ -27,32 +27,33 @@ console.log(story);
 
 // send request to spotlight endpoint
 
-$( document ).ready(function(){
-	var spotlight = $.ajax({
-	  url: SPOTLIGHT_URL,
-	  header: {
-	  	"Accept":"application/json"
-	  }
-	  method: "POST",
-	  data: {
-	    data-urlencode : story,
-	    data : {
-			"confidence" : 0.4,
-			"support": 20
-			}
-	  },
-	  dataType: 'json',
-	  success: function(data) {
-	    $('#main').html($(data).find('#main *'));
-	    $('#notification-bar').text('The page has been successfully loaded');
-	    console.log(data);
-	  },
-	  error: function() {
-	    $('#notification-bar').text('An error occurred');
-	  }
-	});
-	console.log("spotlight obj: ", spotlight)
-)}
+$(document).ready(function() {
+  console.log("ready!");
+  var spotlight = $.ajax({
+    url: SPOTLIGHT_URL,
+    header: {
+      "Accept": "application/json"
+    },
+    method: "POST",
+    data: {
+      "data - urlencode": story,
+      "data": {
+        "confidence": 0.4,
+        "support": 20
+      }
+    },
+    dataType: 'json',
+    success: function(data) {
+      $('#main').html($(data).find('#main *'));
+      $('#notification-bar').text('The page has been successfully loaded');
+      console.log(data);
+    },
+    error: function() {
+      $('#notification-bar').text('An error occurred');
+    }
+  });
+  console.log("spotlight obj: ", spotlight)
+});
 
 
 // share spotlight request with widgets
