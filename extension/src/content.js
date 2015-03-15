@@ -6,4 +6,7 @@ chrome.extension.onMessage.addListener(function(message, sender) {
   }
 });
 
+var story = $(".story-content")
+console.log(story)
+
 console.log("[LOADED] content.js")
