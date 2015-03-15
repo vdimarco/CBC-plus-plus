@@ -15,8 +15,11 @@
     ],
   "content_scripts": [
     {
-      "matches": ["*://google.com/*"],
-      "js": ["/lib/zepto.min.js", "/src/content.js"],
+      "matches": ["*://cbc.ca/*"],
+      "js": [
+        "/lib/zepto.min.js", 
+        "/src/content.js"
+        ],
       "all_frames": true
     }
   ],

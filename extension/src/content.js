@@ -5,3 +5,6 @@ chrome.extension.onMessage.addListener(function(message, sender) {
     alert(url);
   }
 });
+
+alert("[LOADED] content.js")
+console.log("[LOADED] content.js")
