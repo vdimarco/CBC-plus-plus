@@ -12,7 +12,14 @@ function fetch_feed() {
 function display_stories(feed_data) {
   var xml_doc = $.parseXML(feed_data);
   $xml = $(xml_doc);
-  $('#popup').html('<img src="/images/icon/cbc_banner.gif" id="logo" /><br clear="all" /><h2>User Settings</h2><ul><li>[x] Enagle Widget 1</li><li>[x] Enagle Widget 2</li><li>[ ] Enagle Widget 3</li></ul><a href="#">Save</a><br><br>');
+  $('#popup').html('<img src="/images/icon/cbc_banner.gif" id="logo" /><br clear="all" />\
+    <h3>User Settings</h3>\
+    <p>\
+    [x] Enagle Widget 1<br>\
+    [x] Enagle Widget 2<br>\
+    [ ] Enagle Widget 3<br>\
+    </p>\
+    <h3>Top News: Canada</h3>');
   $('#logo')[0].addEventListener('click', function() {
     open_item('http://cbc.ca/')
     window.close()
@@ -23,7 +30,7 @@ function display_stories(feed_data) {
     var item = '';
     var class2 = '';
     if (index >= localStorage['unread_count']) {
-      // // console.log('visited');
+      // console.log('visited');
       item += '<div class="post read">';
     } else {
       item += '<div class="post">'
@@ -31,11 +38,10 @@ function display_stories(feed_data) {
     item += '<span class="tag">' + post.tag + '</span>\
     <a href="' + post.url + '">\
       <div id="' + post.id + '" class="item">\
-        <img src="' + post.img + '" width="107" height="60" />\
         <h4>' + post.title + '</h4>\
         <span class="description">' + post.description + '...</span>\
       </div>\
-    </a>';
+    </a><br>';
     item += '</div>';
     $('#popup').append(item);
     // TODO why isn't jQuery's .on defined?

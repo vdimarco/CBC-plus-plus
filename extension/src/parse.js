@@ -13,7 +13,7 @@ function parse_post(element) {
 	post.id = $(element).find("guid").text();
 	post.url = $(element).find('link').text();
 	post.description = $("<div/>").html($(element).find("description")).text();
-	post.img = $('img', post.description)[0]; //107x60px
+	// post.img = $('img', post.description)[0]; //107x60px
 	var shorten = 120;
 	if (post.title.length > 80) {
 		shorten = 70;
