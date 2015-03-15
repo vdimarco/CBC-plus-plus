@@ -13,13 +13,13 @@ function display_stories(feed_data) {
   var xml_doc = $.parseXML(feed_data);
   $xml = $(xml_doc);
   $('#popup').html('<img src="/images/icon/cbc_banner.gif" id="logo" /><br clear="all" />\
-    <h3>User Settings</h3>\
+    <h3>Enabled Widgets</h3>\
     <p>\
-    [x] Enagle Widget 1<br>\
-    [x] Enagle Widget 2<br>\
-    [ ] Enagle Widget 3<br>\
-    </p>\
-    <h3>Top News: Canada</h3>');
+    Widget 1: Word Cloud<br>\
+    Widget 2: Topic Image Tile<br>\
+    Widget 3: Top New Feeds<br>\
+    <h3><a href="https://github.com/vdimarco/CBC-plus-plus">Add More Widgets</a><h3>\
+    </p>');
   $('#logo')[0].addEventListener('click', function() {
     open_item('http://cbc.ca/')
     window.close()
@@ -43,7 +43,7 @@ function display_stories(feed_data) {
       </div>\
     </a><br>';
     item += '</div>';
-    $('#popup').append(item);
+    $('#feed').append(item);
     // TODO why isn't jQuery's .on defined?
     var $item = $('div[id="' + post.id + '"]')
     console.log('$item', $item)

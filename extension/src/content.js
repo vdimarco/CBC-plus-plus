@@ -1,3 +1,5 @@
+console.log("[LOADING] content.js (top)")
+
 SPOTLIGHT_URL = "http://spotlight.dbpedia.org/rest/annotate"
 
 // receives message from background script
@@ -8,7 +10,6 @@ chrome.extension.onMessage.addListener(function(message, sender) {
   }
 });
 
-console.log("[LOADED] content.js")
 
 // bookmarklet
 
@@ -23,12 +24,24 @@ console.log("[LOADED] content.js")
 
 // select story content
 var story = $(".story-content")
-console.log(story);
+console.log("story obj:", story);
+
+
+// window.addEventListener("load", initialize);
+// $(".story-title").addEventListener("click", handleClick);
+
+$(".story-title").click(function() {
+  alert("Handler for .click() called.");
+});
+
+
 
 // send request to spotlight endpoint
 
 $(document).ready(function() {
+  
   console.log("ready!");
+  
   var spotlight = $.ajax({
     url: SPOTLIGHT_URL,
     header: {
@@ -46,13 +59,15 @@ $(document).ready(function() {
     success: function(data) {
       $('#main').html($(data).find('#main *'));
       $('#notification-bar').text('The page has been successfully loaded');
-      console.log(data);
+      console.log("successfully called spotlight, data = ", data[0]);
     },
     error: function() {
       $('#notification-bar').text('An error occurred');
     }
   });
+
   console.log("spotlight obj: ", spotlight)
+
 });
 
 
@@ -74,4 +89,4 @@ var widget3 = function(spotlight) {
 };
 
 
-console.log("[LOADED] content.js")
+console.log("[LOADED] content.js (bottom)")
