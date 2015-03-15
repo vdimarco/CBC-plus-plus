@@ -6,5 +6,4 @@ chrome.extension.onMessage.addListener(function(message, sender) {
   }
 });
 
-alert("[LOADED] content.js")
 console.log("[LOADED] content.js")
